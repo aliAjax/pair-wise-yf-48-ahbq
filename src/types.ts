@@ -1,5 +1,5 @@
 export type Viewer = "评委-林策" | "评委-周筑" | "主办方";
-export type SchemeStatus = "待评分" | "评分中" | "已提交" | "已锁定";
+export type SchemeStatus = "待评分" | "评分中" | "待复核" | "已提交" | "已锁定";
 
 export interface Scheme {
   id: string;
@@ -25,7 +25,9 @@ export interface ScoreRecord {
   values: Record<string, number>;
   comment: string;
   submitted: boolean;
+  needsReview: boolean;
   conflict: boolean;
+  reviewedWeights?: number[];
   updatedAt: string;
 }
 
